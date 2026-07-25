@@ -10,7 +10,7 @@ PATTERNS = [ './**/*.MF', './**/*.java', './**/*.properties', './**/*.xml', './*
 outputFile = ''
 
 def list_files_glob(pattern = './**/*.*', recursive = True):
-    files = glob.glob(pattern, recursive)
+    files = glob.glob(pattern, recursive = True)
 
     for file in files:
         process_file(file)
