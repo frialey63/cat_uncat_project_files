@@ -5,7 +5,7 @@ import glob
 import sys
 
 NL = '\n'
-PATTERNS = [ './**/*.MF', './**/*.java', './**/*.properties', './**/*.xml', './**/*.yaml']
+PATTERNS = [ './**/*.MF', './**/*.java', './**/*.properties', './**/*.xml', './**/*.yaml', './**/*.txt']
 
 def list_files_glob(pattern = './**/*.*', recursive = True):
     files = glob.glob(pattern, recursive = True)
