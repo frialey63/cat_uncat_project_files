@@ -7,15 +7,17 @@ import sys
 NL = '\n'
 PATTERNS = [ './**/*.MF', './**/*.java', './**/*.properties', './**/*.xml', './**/*.yaml', './**/*.txt']
 
-def list_files_glob(pattern = './**/*.*', recursive = True):
+outputFile = ''
+
+def list_and_cat_files_glob(pattern = './**/*.*', recursive = True):
     files = glob.glob(pattern, recursive = True)
 
     for file in files:
         # files in target have strange line endings and are not necessary
         if not os.path.dirname(file).startswith('./target'):
-            process_file(file)
+            cat_file(file)
 
-def process_file(file):
+def cat_file(file):
     lines = []
 
     with open(file, 'r') as f:
@@ -44,7 +46,7 @@ def main():
         os.remove(outputFile)
 
     for p in PATTERNS:
-        list_files_glob(pattern = p)
+        list_and_cat_files_glob(pattern = p)
 
 if __name__=="__main__":
     main()
